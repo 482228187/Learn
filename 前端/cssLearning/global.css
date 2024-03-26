@@ -1,0 +1,234 @@
+.selector {
+    margin: 20px;
+    border: solid #7aca8c;
+}
+
+#idSelector {
+    color: gold;
+    font-size: large;
+}
+
+h1 {
+    color: aqua;
+}
+
+.classSelector {
+    color: #bcdf70;
+}
+
+.children {
+    color: brown;
+}
+
+/* .parent .children{
+    color: #7aca8c;
+} */
+.parent {
+    .children {
+
+        color: #7aca8c;
+    }
+}
+
+.violet {
+    color: violet;
+}
+
+.text-lg {
+    font-size: 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+/* 颜色知识 */
+.myColor {
+    margin: 10px;
+    padding: 20px;
+    border: 5px solid #111211;
+    background-color: #d7ffe0
+}
+
+.rgb {
+    color: rgb(236, 10, 10);
+}
+
+.hex {
+    color: #d39a2f
+}
+
+.text-opacity {
+    color: rgba(236, 10, 10, 0.5);
+}
+.opacity{
+    background-color: #d39a2f;
+    opacity: 0.5;
+    p{
+        color: rgba(236, 10, 10);
+    }
+}
+
+/* 字体知识 */
+.myText{
+    margin: 10px;
+    border: solid wheat;
+}
+
+@font-face {
+    font-family: AlimamaFanyYuan;
+    src: url(./AlimamaFangYuanTiVF-Thin-2.ttf);
+}
+/* 越前面优先级越高 */
+.text-1{
+    font-family: AlimamaFanyYuan, 'sans-serif';
+}
+/* 设置大小行高 */
+.text-2{
+    font-family: 'sans-serif';
+    font-size: 24px;
+    line-height: 32px;
+}
+/* 设置粗细-斜体样式-文本装饰性线条 */
+.text-3{
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: underline;
+}
+/* 盒子模型 */
+.myBox{
+    /* 宽度和高度 */
+    width: 200px;
+    height: 200px;
+    /* 边框   */
+    border: thick double #32a1ce;
+    border-radius: 30px;
+    margin: 6px 12px;
+    padding: 20px;
+    p{
+        background-color: #d39a2f;
+    }
+}
+
+/* 布局知识 */
+.display{
+    border: 5px dashed rgb(238, 199, 199);
+    margin: 10px;
+}
+/* 设置块级元素 */
+.block{
+    display: block;
+}
+/* 设置内联样式 */
+.inline{
+    display: inline;
+}
+/* 内联块级元素 */
+.inline-box{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: solid #111211;
+}
+/* 隐藏 */
+.none{
+    display: none;
+}
+.flex-box{
+    border: 5px solid #bcdf70;
+}
+/* 弹性布局 默认是水平方向 */
+.flex{
+    display: flex;
+    /* border: 5px solid #bcdf70; */
+    padding: 10px;
+}
+/* 设置间隔 */
+.gap{
+    gap: 12px;
+}
+
+/* 设置弹性项目的占比 */
+.item{
+    background-color: #d39a2f;
+    flex: 1;
+}
+.item2{
+    background-color: #d39a2f;
+    flex:2;
+}
+/* 设置主轴方向 纵轴,且主轴设置为末尾位置,交叉轴中心位置 */
+.flex-column{
+    display: flex;
+    height: 120px;
+    background-color: #d9e3c3;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.item3{
+    margin: 5px;
+    background-color: #d39a2f;
+}
+.flex-justify-content-1{
+    display: flex;
+    justify-content: space-around;
+}
+.item4{
+    background-color: #7e8ae2;
+}
+.flex-justify-content-2{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+.item5{
+    background-color: #7e8ae2;
+}
+/* 网格布局 */
+.gird{
+    display: grid;
+    /* 第一行高度20px 第二行40px 第三行60px */
+    /* grid-template-rows: 20px 40px 60px; */
+    /* 指定两列 第二列占据的剩余空间是第一列的两倍 */
+    /* grid-template-columns: 1fr 2fr; */
+
+    /* 或者设置grid-auto-rows 与 grid-auto-columns: ; */
+    border: 5px solid #7e8ae2;
+    grid-template-columns: repeat(4,1fr);
+    /* 弹性项目行100px */
+    grid-auto-rows: 40px;
+    /* 每列等宽 */
+    grid-auto-columns: 1fr;
+    grid-gap: 10px;
+}
+.gird-item{
+    background-color: #f5f2e3;
+}
+.reletive{
+    border: 5px solid #d39a2f;
+    position: relative;
+    background-color: #f5f2e3;
+    height: 400px;
+    width: 400px;
+}
+.absolute{
+    position: absolute;
+    background-color: #7e8ae2;
+    width: 140px;
+    height: 180px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    img{
+        width: 120px;
+        height: 160px;
+    }
+}
+.fixed{
+    position: fixed;
+    background-color: #32a1ce;
+    width: 80px;
+    height: 40px;
+    top: 0;
+    right: 0;
+}

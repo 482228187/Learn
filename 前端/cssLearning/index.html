@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./global.css">
+</head>
+
+<body>
+    <!-- 选择器知识 -->
+    <div class="selector">
+        <span style="border: solid #7aca8c;">选择器知识如下所示:</span>
+        <h1>元素选择器如下所示:</h1>
+        <!-- id 选择器 id唯一-->
+        <p id="idSelector">id选择器</p>
+        <!-- 类选择器 ：不同元素选择器可以共享同一个类选择器样式-->
+        <div class="classSelector">div元素选择器</div>
+        <nav class="classSelector">nav元素类选择器</nav>
+        <footer class="classSelector">footer元素选择器</footer>
+        <!-- 层级关系 -->
+        <div class="parent">
+            <p class="children">父元素的孩子元素</p>
+        </div>
+        <!-- 同名类其他元素 -->
+        <p class="children">孩子元素</p>
+        <!-- 同一个元素匹配多个类选择器 -->
+        <div class="violet text-lg text-center">复杂样式</div>
+    </div>
+    <!-- 颜色知识 -->
+    <div class="myColor">
+        <span style=" border: 5px solid #111211;">颜色知识如下所示:</span>
+        <p class="rgb"> 利用RGB表示颜色</p>
+        <p class="hex"> 利用HEX表示颜色</p>
+        <p class="text-opacity"> 颜色透明度</p>
+
+        <div class="opacity">
+            <p>opaticy调整整体的透明度</p>
+        </div>
+    </div>
+    <!-- 字体知识 -->
+    <div class="myText">
+        <span style=" border: solid wheat;">文本知识如下所示:</span>
+        <p class="text-1"> 文本样式1-字体设置</p>
+        <p class="text-2"> 文本样式2-设置大小行高</p>
+        <p class="text-3"> 文本样式3-设置粗细-斜体样式-文本装饰性线条</p>
+    </div>
+    <!-- 盒子模型知识 -->
+    <div class="myBox">
+        <span style=" border: thick double #32a1ce;">盒子模型知识如下所示:</span>
+        <p class="item">元素1</p>
+        <p class="item2"> 元素2</p>
+    </div>
+    <!-- 布局知识 -->
+    <div class="display">
+        <span style=" border: 5px dashed rgb(238, 199, 199);"> 布局知识如下所示:</span>
+        <!-- 设置块级元素样式 div、p、h1等默认是块级元素 -->
+        <span class="block">块级样式: 我会独占一行(span设置块级样式)</span>
+        <!-- 设置内联元素,有些元素默认是内联的如:span、a -->
+        <div class="inline">内联样式: 我不会独占一行(div设置了内联样式)</div>
+        <div class="inline">我不会独占一行(div设置了内联样式)</div>
+        <div class="inline-box">内联块级样式: 我本来不能设置宽高</div>
+        <div class="none">我会隐藏起来</div>
+        <!-- 弹性布局 -->
+        <div class="flex-box">
+            <div style=" border: 5px solid #6cd979;"> 弹性布局知识如下所示:</div>
+            <div class="flex gap">
+
+                <div class="item">元素1</div>
+                <div class="item2">元素2</div>
+                <div class="item">元素</div>
+            </div>
+            <!-- 纵轴方向的弹性布局 -->
+            <div style=" border: 5px solid #6cd979;"> 设置主轴方向为纵轴,且主轴设置为末尾位置,交叉轴中心位置,如下所示: </div>
+            <div class="flex-column">
+
+                <div class="item3">元素1</div>
+                <div class="item3">元素2</div>
+                <div class="item3">元素</div>
+            </div>
+            <!-- justify-content的知识 -->
+            <div style=" border: 5px solid #6cd979;">justify-content 的设置space-around如下所示: </div>
+            <div class="flex-justify-content-1">
+
+                <div class="item4">space-around</div>
+                <div class="item4">space-around</div>
+                <div class="item4">space-around</div>
+            </div>
+            <div style=" border: 5px solid #6cd979;"> justify-content 的设置space-between如下所示: </div>
+            <div class="flex-justify-content-2">
+
+                <div class="item5">space-between</div>
+                <div class="item5">space-between</div>
+                <div class="item5">space-between</div>
+            </div>
+        </div>
+        <span style="border:2px solid #7e8ae2;margin-top: 10px;"> 网格布局知识如下所示:</span>
+        <!-- 网格布局知识 -->
+        <div class="gird">
+
+            <div class="gird-item">网格内容</div>
+            <div class="gird-item">网格内容</div>
+            <div class="gird-item">网格内容</div>
+            <div class="gird-item">网格内容</div>
+            <div class="gird-item">网格内容</div>
+            <div class="gird-item">网格内容</div>
+        </div>
+        <!-- 定位知识 -->
+        <div class="reletive">
+            <span style="border: 5px solid #d39a2f"> 定位知识如下所示:</span>
+            <div>注意:top:0; right: 0;bottom: 0;left: 0, 可以让明确宽高的盒子水平垂直居中或者 让无宽高的盒子填充父容器</div>
+            <div class="absolute">
+                <img src="./cat.jpg">
+            </div>
+
+        </div>
+        <!-- 固定定位 相对于浏览器窗口 -->
+        <div class="fixed">固定定位</div>
+    </div>
+</body>
+
+</html>
