@@ -2,7 +2,9 @@
 
 ## 1. 什么是 *DOCTYPE*， 有何作用？
 
-`Doctype`是HTML5的文档声明，通过它可以告诉浏览器，使用哪一个HTML版本标准解析文档。在浏览器发展的过程中，HTML出现过很多版本，不同的版本之间格式书写上略有差异。如果没有事先告诉浏览器，那么浏览器就不知道文档解析标准是什么？此时，大部分浏览器将开启最大兼容模式来解析网页，我们一般称为`怪异模式`，这不仅会降低解析效率，而且会在解析过程中产生一些难以预知的`bug`，所以文档声明是必须的。
+**文档声明的作用：** 文档声明是为了告诉浏览器，当前`HTML`文档使用什么版本的`HTML`来写的，这样浏览器才能按照声明的版本来正确的解析。 
+
+**<!doctype html> 的作用：** 就是让浏览器进入标准模式(严格模式)，使用最新的 `HTML5` 标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。 
 
 ##  2. 说说对 *html* 语义化的理解
 
@@ -266,5 +268,384 @@ markdown
 但是目前来讲大部分浏览器都不会对音视频进行播放。
 
 **video**标签来向网页中引入一个视频，使用方法和audio基本上是一样的，包括各种audio拥有的属性，video也有。
+
+## 24. 说一下 web worker
+
+在 HTML 页面中，如果在执行脚本时，页面的状态是不可响应的，直到脚本执行完成后，页面才变成可响应。web worker 是运行在后台的 js，独立于其他脚本，不会影响页面的性能。 并且通过 postMessage 将结果回传到主线程。这样在进行复杂操作的时候，就不会阻塞主线程了。
+
+如何创建 web worker：
+
+1. 检测浏览器对于 web worker 的支持性
+2. 创建 web worker 文件（js，回传函数等）
+3. 创建 web worker 对象 
+
+## 25. 说说img标签的onerror事件，图片加载失败的处理方法
+
+在图片不存在或者网络状态不好的情况下，会存在图片加载不过来，用户体验很差
+
+可以直接在img标签里添加onerror事件进行控制
+
+```
+ini
+复制代码    <img src="" onerror="javascript:this.src='xxx.jpg';">
+    
+    注意点：
+        1.这里的图片要尽可能小，如果过大还会存在加载失败的可能；
+
+        2.当'xxx.jpg'图片不存在时还会出现加载失败；
+
+        3.当加载失败时会再次执行onerror，再失败再执行，会一直执行陷入循环之中。
+```
+
+所以可以写一个函数，让函数只执行一次（执行一次把它置为null即可），不让其进入循环之中
+
+![微信截图_20221003101902.png](assets/bdfc4914adfd459390babceed758eb2e-tplv-k3u1fbpfcp-zoom-in-crop-mark-1512-0-0-0.webp) 
+
+## 26. html 常见兼容性问题？
+
+1. 双边距 BUG float 引起的，解决办法: 使用 display解决
+2. 2.3 像素问题 使用 float 引起的，解决办法: 使用 dislpay:inline -3px
+
+1. 超链接 hover 点击后失效，解决办法: 使用正确的书写顺序 link visited hover active
+2. Ie z-index 问题，解决办法: 给父级添加 position:relative
+3. Png 透明 ，解决办法: 使用 js 代码
+4. Min-height 最小高度 ，解决办法: ！Important 解决
+5. 7.select 在 ie6 下遮盖，解决办法: 使用 iframe 嵌套
+
+1. 为什么没有办法定义 1px 左右的宽度容器，解决办法: （IE6 默认的行高造成的，使用 over:hidden, zoom:0.08 line-height:1px）
+2. IE5-8 不支持 opacity，解决办法：
+
+```
+css
+复制代码 .opacity {
+    opacity: 0.4;
+    filter: alpha(opacity=60);/_ for IE5-7 _/ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";/_ for IE 8_/
+  }
+```
+
+1. IE6 不支持 PNG 透明背景，解决办法: IE6 下使用 gif 图片
+
+[其他类型问题可参考文章](https://juejin.cn/post/6844904193841430536)
+
+ 
+
+## 27. 说一下HTML5的离线存储？
+
+指的是没有网络连接的时候，可以正常访问应用，与网络连接时更新缓存文件
+
+在 cache.manifest 文件中编写需要离线存储的资源：
+
+如何清除缓存：更新 manifest 文件，通过 javascript 操作，清除浏览器缓存
+
+## 28. 前缀为 data- 开头的元素属性是什么？
+
+这是一种为 HTML 元素添加额外数据信息的方式，被称为 **自定义属性**。
+
+我们可以直接在元素标签上声明这样的数据属性：
+
+```
+bash
+复制代码<div id="mydiv" data-message="Hello,world" data-num="123"></div>
+```
+
+也可以使用 JavaScript 来操作元素的数据属性：
+
+```
+javascript
+复制代码let mydiv = document.getElementById('mydiv')
+
+// 读取
+console.log(mydiv.dataset.message)
+
+// 写入
+mydiv.dataset.foo = "bar!!!"
+```
+
+## 29. HTML、XML、XHTML 之间有什么区别？
+
+它们都属于标记语言。
+
+| 语言  | 中文名               | 说明                                                         |
+| ----- | -------------------- | ------------------------------------------------------------ |
+| HTML4 | 超文本标记语言       | 主要用于做界面呈现。HTML 是先有实现，后面才慢慢制定标准的，导致HTML⾮常混乱和松散，语法非常的不严谨。 |
+| XML   | 可扩展标记语言       | 主要⽤于存储数据和结构。语法严谨，可扩展性强。由于 JSON 也有类似作⽤但更轻量⾼效， XML 的市场变得越来越⼩。 |
+| XHTML | 可扩展超文本标记语言 | 属于加强版 HTML，为解决 HTML 的混乱问题而生，在语法方面变得和 XML 一样严格。另外，XHTML 的出现也催生了 HTML 5，让HTML向规范化严谨化过渡。 |
+| HTML5 | 超文本标记语言       | 在HTML的基础上进行拓展，用于页面呈现 (目前标准)              |
+
+XML的要求会比较严格:
+
+1. 有且只能有一个根元素
+2. 大小写敏感
+3. 正确嵌套
+4. 必须双引号
+5. 必须闭合标签
+
+ 渐进增强和优雅降级之间的区别
+
+**（1）渐进增强（progressive enhancement）** ：主要是针对低版本的浏览器进行页面重构，保证基本的功能情况下，再针对高级浏览器进行效果、交互等方面的改进和追加功能，以达到更好的用户体验。
+
+**（2）优雅降级 graceful degradation**： 一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。
+
+**两者区别：**
+
+- 优雅降级是从复杂的现状开始的，并试图减少用户体验的供给；而渐进增强是从一个非常基础的，能够起作用的版本开始的，并在此基础上不断扩充，以适应未来环境的需要；
+- 降级（功能衰竭）意味着往回看，而渐进增强则意味着往前看，同时保证其根基处于安全地带。
+
+## 30. 浏览器乱码的原因是什么？如何解决？
+
+**产生乱码的原因：**
+
+- 网页源代码是`gbk`的编码，而内容中的中文字是`utf-8`编码的，这样浏览器打开即会出现`html`乱码，反之也会出现乱码；
+- `html`网页编码是`gbk`，而程序从数据库中调出呈现是`utf-8`编码的内容也会造成编码乱码；
+- 浏览器不能自动检测网页编码，造成网页乱码。
+
+**解决办法：**
+
+- 使用软件编辑HTML网页内容；
+- 如果网页设置编码是`gbk`，而数据库储存数据编码格式是`UTF-8`，此时需要程序查询数据库数据显示数据前进程序转码；
+- 如果浏览器浏览时候出现网页乱码，在浏览器中找到转换编码的菜单进行转换。
+
+## 31.head 标签有什么作用，其中什么标签必不可少？
+
+标签用于定义文档的头部，它是所有头部元素的容器。 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等。
+
+文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置以及和其他文档的关系等。绝大多数文档头部包含的数据都不会真正作为内容显示给读者。
+
+**下面这些标签可用在 head 部分：`<base>, <link>, <meta>, <script>, <style>, <title>`。**
+
+**其中 `<title>` 定义文档的标题，它是 head 部分中唯一必需的元素。**
+
+ 
+
+## 32.说一下 HTML5 drag(拖拽) API
+
+dragstart：事件主体是被拖放元素，在开始拖放被拖放元素时触发。
+
+darg：事件主体是被拖放元素，在正在拖放被拖放元素时触发。
+
+dragenter：事件主体是目标元素，在被拖放元素进入某元素时触发。
+
+dragover：事件主体是目标元素，在被拖放在某元素内移动时触发。
+
+dragleave：事件主体是目标元素，在被拖放元素移出目标元素是触发。
+
+drop：事件主体是目标元素，在目标元素完全接受被拖放元素时触发。
+
+dragend：事件主体是被拖放元素，在整个拖放操作结束时触发。
+
+## 33.常⽤的meta标签有哪些
+
+`meta` 标签由 `name` 和 `content` 属性定义，**用来描述网页文档的属性**，比如网页的作者，网页描述，关键词等，除了HTTP标准固定了一些`name`作为大家使用的共识，开发者还可以自定义name。
+
+## 34.常用的meta标签：
+
+`charset`，用来描述HTML文档的编码类型：
+
+```
+ini
+复制代码<meta charset="UTF-8" >
+```
+
+`keywords`，页面关键词：
+
+```
+ini
+复制代码<meta name="keywords" content="关键词" />
+```
+
+`description`，页面描述：
+
+```
+ini
+复制代码<meta name="description" content="页面描述内容" />
+```
+
+`refresh`，页面重定向和刷新：
+
+```
+ini
+复制代码<meta http-equiv="refresh" content="0;url=" />
+```
+
+`viewport`，适配移动端，可以控制视口的大小和比例：
+
+```
+ini
+复制代码<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+```
+
+viewport的`content` 参数有以下几种：
+
+- `width viewport` ：宽度(数值/device-width)
+- `height viewport` ：高度(数值/device-height)
+- `initial-scale` ：初始缩放比例
+- `maximum-scale` ：最大缩放比例
+- `minimum-scale` ：最小缩放比例
+- `user-scalable` ：是否允许用户缩放(yes/no）
+
+`robots`，搜索引擎索引方式：
+
+```
+ini
+复制代码<meta name="robots" content="index,follow" />
+```
+
+robots的`content` 参数有以下几种：
+
+- `all`：文件将被检索，且页面上的链接可以被查询；
+- `none`：文件将不被检索，且页面上的链接不可以被查询；
+- `index`：文件将被检索；
+- `follow`：页面上的链接可以被查询；
+- `noindex`：文件将不被检索；
+- `nofollow`：页面上的链接不可以被查询。
+
+##  35. 响应式图片处理优化: Picture 标签
+
+**考察点: 响应式图片处理**
+
+`picture`元素就像是图像和其源的容器。浏览器仍然需要`img`元素，用来表明需要加载的图片
+
+在 `<picture>` 下可放置零个或多个`<source>`标签、以及一个`<img>`标签，为不同的屏幕设备和场景显示不同的图片。
+
+如果source匹配到了, 就会优先用匹配到的, 如果没有匹配到会往下继续找
+
+使用`picture`元素选择图像，不会有歧义。
+
+浏览器的工作流程如下：
+
+- 浏览器会先根据当前的情况，去匹配和使用`<source>`提供的图片
+- 如果未匹配到合适的`<source>`，就使用`<img>`标签提供的图片
+
+```
+ini
+复制代码<picture>
+  <source srcset="640.png" media="(min-width: 640px)">
+  <source srcset="480.png" media="(min-width: 480px)">
+  <img src="320.png" alt="">
+</picture>
+```
+
+## 36. img的srcset属性的作⽤？
+
+响应式页面中经常用到根据屏幕密度设置不同的图片。这时就用到了 img 标签的srcset属性。
+
+**通过使用 img 标签的 srcset 属性，可定义一组额外的图片集合，让浏览器根据不同的屏幕状况选取合适的图片来显示**。
+
+## 37. script标签中defer和async的区别
+
+如果没有defer或async属性，浏览器会立即加载并执行相应的脚本。它不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载。
+
+下图可以直观的看出三者之间的区别:
+
+![微信截图_20221003095431.png](assets/d0cf341216374b559fcda53c58bc9d17-tplv-k3u1fbpfcp-zoom-in-crop-mark-1512-0-0-0.webp)
+
+其中蓝色代表js脚本网络加载时间，红色代表js脚本执行时间，绿色代表html解析。
+
+**defer 和 async属性都是去异步加载外部的JS脚本文件，它们都不会阻塞页面的解析**，其区别如下：
+
+- **执行顺序：** 多个带async属性的标签，不能保证加载的顺序；多个带defer属性的标签，按照加载顺序执行；
+- **脚本是否并行执行：async属性，表示后续文档的加载和执行与js脚本的加载和执行是并行进行的**，即异步执行；defer属性，加载后续文档的过程和js脚本的加载(此时仅加载不执行)是并行进行的(异步)，js脚本需要等到文档所有元素解析完成之后才执行，DOMContentLoaded事件触发执行之前。
+
+##  38.  说说对HTML语义化的理解
+
+**语义化是指根据内容的结构化（内容语义化），选择合适的标签（代码语义化）** 。通俗来讲就是用正确的标签做正确的事情。
+
+语义化的优点如下：
+
+- 对机器友好，带有语义的文字表现力丰富，更适合搜索引擎的爬虫爬取有效信息，**有利于SEO**。除此之外，语义类还支持读屏软件，根据文章可以自动生成目录；
+- 对开发者友好，使用语义类标签**增强了可读性**，结构更加清晰，开发者能清晰的看出网页的结构，便于团队的开发与维护。
+
+常见的语义化标签：
+
+```
+css
+复制代码<h1>~<h6>标签：标题标签，h1等级最高，h6等级最低
+
+<header></header>：用于定义页面的介绍展示区域，通常包括网站logo、主导航、全站链接以及搜索框
+
+<nav></nav>：定义页面的导航链接部分区域
+
+<main></main>：定义页面的主要内容，一个页面只能使用一次。
+
+<article></article>：定义页面独立的内容，它可以有自己的header、footer、sections等
+
+<section></section>：元素用于标记文档的各个部分，例如长表单文章的章节或主要部分
+
+<aside></aside>：一般用于侧边栏
+
+<footer></footer>：文档的底部信息
+
+<small></small>：呈现小号字体效果
+
+<strong></strong>：用于强调文本
+```
+
+## 39.  Canvas 与 SVG 的区别 
+
+[参考来源](https://juejin.cn/post/7083146633029877768)
+
+## svg
+
+ **可缩放矢量图形**（**Scalable Vector Graphics，SVG**），是一种用于描述二维的[矢量图形](https://link.juejin.cn/?target=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E7%259F%25A2%25E9%2587%258F%25E5%259B%25BE%25E5%25BD%25A2)， 基于 XML 的标记语言, 这意味着可以使用任何文本编辑器(如记事本)创建和编辑SVG图像。
+
+与[JPEG](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FGlossary%2Fjpeg)和[PNG](https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FGlossary%2FPNG)这种传统的点阵图像模式不同，SVG格式提供的是矢量图，这意味着它的图像能够被**无限放大而不失真或降低质量**，并且可以方便地修改内容。
+
+`HTML` `<svg>`元素是`svg`图形的容器。
+
+------
+
+> [svg demo](https://link.juejin.cn?target=https%3A%2F%2Fjsbin.com%2Fyejohebuvo%2F2%2Fedit%3Fhtml%252Cconsole%252Coutput%3D)
+
+```
+<svg id="svgelem" height="200">
+    <circle id="greencircle" cx="60" cy="60" r="50" fill="#1E81FF" />
+</svg>
+```
+
+![image.png](assets/7a84cb8161344125a65d9a5243c45d9c-tplv-k3u1fbpfcp-zoom-in-crop-mark-1512-0-0-0.webp)
+
+## canvas
+
+**`<canvas>`本身只是相当于一块画布，不具有绘图能力，必须通过脚本(通常是JavaScript)动态地绘制图形，脚本充当画笔的角色。**元素只是图形的容器, 必须使用脚本来实际绘制图形。Canvas有几种绘制路径、框、圆、文本和添加图像的方法
+
+------
+
+> [canvas demo](https://link.juejin.cn?target=https%3A%2F%2Fjsbin.com%2Fweduxufura%2Fedit%3Fhtml%252Cconsole%252Coutput%3D)
+
+```
+<canvas id="newCanvas" width="100" height="100" style="border:1px solid #000000;">
+</canvas>
+
+<script>
+    var c = document.getElementById('newCanvas');
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#1E81FF';
+    ctx.fillRect(0, 0, 100, 100);
+</script>
+```
+
+![image.png](assets/4d10aba1ba1a4916ad0da0d5ebebf326-tplv-k3u1fbpfcp-zoom-in-crop-mark-1512-0-0-0.webp)
+
+### 二者的区别
+
+`SVG`是一种基于`XML`中的2D图形的语言。
+
+`Canvas`通过脚本动态绘制2D图形。
+
+`SVG`是基于`XML`的，这意味着每个元素都在`SVG DOM`中可用, 可以为元素附加`JavaScript`事件处理程序。在SVG中，将每个绘制的形状记住为对象。如果更改了SVG对象的属性，则浏览器可以自动重新呈现形状。
+
+`Canvas`由像素呈现,一旦图形在画布中绘制完成，浏览器撒手不管了。如果需要更改其位置，则需要重新绘制整个场景，其中许多对象会被频繁重绘。
+
+**详细对比如下：**
+
+| SVG                                       | Canvas                                     |
+| ----------------------------------------- | ------------------------------------------ |
+| 不依赖分辨率（矢量图）                    | 依赖分辨率（位图）                         |
+| 每一个图形都是一个 `DOM`元素              | 单个HTML元素，相当于`<img>`                |
+| 支持事件处理器                            | 不支持事件处理器                           |
+| 适合大型渲染区域的应用程序(谷歌地图)      | 文本渲染能力差                             |
+| 可以通过脚本和CSS进行修改                 | 只能通过脚本修改                           |
+| 对象数量较小 (`<10k`)、图面更大时性能更佳 | 图面较小，对象数量较大（`>10k`）时性能最佳 |
+| 不适合游戏应用                            | 适合图像密集型的游戏应用                   |
 
  
