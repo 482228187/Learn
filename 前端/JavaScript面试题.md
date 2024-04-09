@@ -2,7 +2,7 @@
 
 [参考博客](https://juejin.cn/post/7347324514365227047)，参考博客，
 
-## 1. JS的数据类型及检测方法
+## **  1. JS的数据类型及检测方法
 
 基本数据类型：number、string、undefined、null、boolean、symbol（es6）、bigInt（es7）
 
@@ -64,7 +64,7 @@ alert( s.call(null) ); // [object Null]
 alert( s.call(alert) ); // [object Function]
 ```
 
-## 2. ES6新增
+## **  2. ES6新增
 
 - **let 和 const**：用于变量声明，提供块级作用域。
 - **箭头函数（Arrow Functions）** ：简化了函数表达式的写法，使用 `=>` 符号
@@ -108,7 +108,7 @@ function sum(...args) { // Rest parameters
 - **Symbol 类型**：引入了新的原始数据类型 `Symbol`，可用作唯一的属性键。
 - **新的静态方法和属性**：例如 `Array.from`, `Object.assign`, `Number.isFinite`, `Math.trunc` 等
 
-## 3. let、const、var区别
+## **  3. let、const、var区别
 
 |            | var      | let    | const  |
 | ---------- | -------- | ------ | ------ |
@@ -157,7 +157,7 @@ const boundGreet = greet.bind(person, 'Hello');
 const result = boundGreet(); // "Hello, Alice"
 ```
 
-## 5. ==和===区别
+## **  5. ==和===区别
 
 - **`=` 是相等运算符**，**它执行类型转换以尝试匹配值的类型后再比较它们的等价性**。当使用 `==` 比较两个变量时，如果它们的类型不相同，JavaScript 会尝试将它们转换为一个共同类型，然后再进行比较。
 
@@ -171,7 +171,7 @@ const result = boundGreet(); // "Hello, Alice"
 '2' === 2; // false，因为它们的类型不同
 ```
 
-## 6. 原型及原型链
+## ** 6. 原型及原型链
 
 ### 原型 (Prototype)
 
@@ -369,7 +369,7 @@ instance.sayAge(); // 21
 
 寄生组合式继承是最有效率的继承方式，它只调用一次 SuperType 构造函数，并且避免了在 SubType.prototype 上创建不必要的、多余的属性。与此同时，原型链还能保持不变；因此，还能够正常使用 instanceof 和 isPrototypeOf。出于这些原因，寄生组合式继承被认为是引用类型最理想的继承范式
 
-##   8. 作用域和闭包
+##   **  8. 作用域和闭包
 
 **作用域**：是程序中定义变量的区域，分为全局作用域（代码的任何地方都能访问到的变量）和局部作用域（只能在函数或者代码块内部访问的变量）；局部作用域可以分为局部作用域和函数作用域
 
@@ -386,7 +386,7 @@ instance.sayAge(); // 21
 - 闭包使得函数的变量都放在内存中，内存消耗较大，解决办法是退出函数之前把所有的变量删除
 - 闭包会在父函数外部改变其内部的值
 
-## 9. promise理解
+## **  9. promise理解
 
 - `promise`是异步编程的解决方案，最早是由社区提出的，他可以看作是一个容器，里面放着异步操作和异步操作的结果，是一个构造函数，接收一个参数返回一个`promise`实例，可以获取异步操作的信息，也可以避免地域回调的问题。
 - `promise`有三种状态，`初始态pending、成功态 resolved--也叫fulfilled、失败态 rejected`；状态是不可逆的只能由`pending`变为`resolved或rejected`；并且`promise`一旦创建就立即执行，无法取消；状态的改变只能通过`resolve、reject`来实现
@@ -397,7 +397,7 @@ instance.sayAge(); // 21
    iv.`.race()`：和.all类似，不同的是最先执行的事件的状态就是.race的状态
    v.`.finally()`：不管最后结果如何都执行
 
-##  10. 箭头函数特点
+##  **  10. 箭头函数特点
 
 - 箭头函数的语法更简单，省去了`function`关键字
 - 不能创建自己的`this`上下文，`this`值在定义箭头函数的时候就确定下来了，他继承父级的`this`
@@ -409,7 +409,7 @@ instance.sayAge(); // 21
 
 箭头函数：在哪里定义函数，this指向谁
 
-##   11 new一个对象的过程
+##   **  11 new一个对象的过程
 
 当在 JavaScript 中使用 `new` 操作符创建一个新对象时，会经历以下几个步骤：
 
@@ -455,7 +455,7 @@ console.log(curriedSum(1)(2, 3)); // 6
 // curry`函数接受一个函数 fn 并返回一个新的函数，逐步接收参数并在参数足够时执行原函数。柯里化后的函数 curriedSum 可以被多次调用，每次接受部分参数，直到收集齐所有参数并执行原始的 `sum` 函数
 ```
 
-## 13 简述深拷贝和浅拷贝
+## **  13 简述深拷贝和浅拷贝
 
 ### 浅拷贝
 
@@ -542,7 +542,7 @@ deepCloneUsingMessageChannel(original).then(deepCopy => {
 // 这个方法是异步的，通常不推荐用于同步逻辑的深拷贝
 ```
 
-##  14 简述forEach()和map()循环的主要区别，它们分别在什么情况下使用
+##  **  14 简述forEach()和map()循环的主要区别，它们分别在什么情况下使用
 
 ### forEach()
 
@@ -554,7 +554,7 @@ deepCloneUsingMessageChannel(original).then(deepCopy => {
 
  ![1712472909957](assets/1712472909957.png)
 
-## 15  简述JSONP的工作原理（它为什么不是真的AJAX）
+## **  15  简述JSONP的工作原理（它为什么不是真的AJAX）
 
 `JSONP（JSON with Padding）`是一种跨域数据交换的协议，它允许网页从不同域名下加载数据。`JSONP `利用了 `<script>` 标签的一个特性：无论域名，都可以加载并执行 JavaScript 资源。由于同源策略限制`XMLHttpRequest`对象只能请求相同域名下的资源，`JSONP`提供了一种绕过这一限制的方法。
 
@@ -571,7 +571,7 @@ deepCloneUsingMessageChannel(original).then(deepCopy => {
 
 JSONP 的一个主要缺点是它缺乏错误处理机制。如果 JSONP 请求失败或服务器返回错误，客户端通常无法捕获到错误信息。此外，因为 JSONP 是通过插入 `<script>` 标签执行的，它存在安全风险——如果服务器返回恶意代码，那么这段代码将直接在客户端上执行。考虑到这些问题，现在推荐使用 CORS（跨源资源共享）来实现跨域请求，而不是使用 JSONP。
 
-## 16. 对async/await理解
+## **  16. 对async/await理解
 
 ### async
 
@@ -640,7 +640,7 @@ async function fetchData() {
 
 推荐使用 `async` 或 `defer` 来提高页面加载性能，除非有特定原因需要立即加载并执行脚本
 
-##  18. JS精度丢失问题
+##   **  18. JS精度丢失问题
 
 精度丢失问题通常是由于其使用 IEEE 754 双精度浮点数格式来表示数字所导致的。这种格式在表示大多数小数时，并不能精确地表示这些数字，尤其是当涉及到二进制和十进制转换时
 
@@ -739,7 +739,7 @@ myFunction(); // 输出: Function from myModule
 > - CommonJS 模块是动态的，可以在代码的任何位置使用 `require()`，并且可以根据条件动态加载模块。 ES6 模块通过 CORS 策略限制了跨域模块请求，同时要求服务器提供带有正确 MIME 类型 `application/javascript` 的模块文件。
 > - 模块化是现代 JavaScript 开发的基石，它允许高效地组织和管理代码，促进了代码的重用和封装。随着 JavaScript 生态系统的发展，越来越多的项目采用 ES6 模块化标准，特别是在客户端和前端框架/库中
 
-## 21 垃圾回收机制和内存泄漏
+## **  21 垃圾回收机制和内存泄漏
 
 ### 垃圾回收机制
 
@@ -759,7 +759,7 @@ Js有两种变量，全局变量和局部变量，全局变量的内存是等页
 
 ![1712480078655](assets/1712480078655.png)
 
-## 22. 防抖、节流、重排、重绘
+## **  22. 防抖、节流、重排、重绘
 
 - **防抖**：防止抖动，用于将用户的操作行为触发转换为程序行为触发，在一段时间内某个事件连续触发多次，回调只会执行一次。
 
@@ -777,17 +777,17 @@ Js有两种变量，全局变量和局部变量，全局变量的内存是等页
 
 ## 
 
-## 23. cookie、sessionStorage、localStorage区别
+## **  23. cookie、sessionStorage、localStorage区别
 
 ![1712473147077](assets/1712473147077.png)
 
-## 25. eventloop（事件循环机制）
+## **  25. eventloop（事件循环机制）
 
 它是计算机的一种运行机制，解决js单线程的一些问题，由于js时候单线程的，所有任务都在一个线程上执行，当遇到任务量大或者耗时任务时，就会出现假死的现象，无法及时的响应用户
 
 `eventloop`就是用于等到和发送消息的。简单的说就是创建2个线程，一个是主线程用来执行本身的任务，另一个用来负责与其他线程进行通信，也就是`eventLoop`线程，当遇到输入输出命令时，主线程就会让`eventLoop`线程去通知响应的程序继续往后执行，这样就不存等到程序完成之后再把结果返回无法及时响应用户的问题
 
- 
+
 
 ##  26. 事件冒泡
 

@@ -1,4 +1,4 @@
-##  1：说说你对盒子模型的理解? 
+##  **  1：说说你对盒子模型的理解? 
 
 **[简洁版：](https://github.com/lf2021/Front-End-Interview/blob/master/04.CSS/css.md)**
 
@@ -66,7 +66,7 @@ margin 虽然是盒子模型的组成部分，但是和盒子的大小没有关�
 IE盒模型
 [![image](assets/203681436-95693d33-3b06-4daf-9d61-dc522d4d4408.png)](https://user-images.githubusercontent.com/82071209/203681436-95693d33-3b06-4daf-9d61-dc522d4d4408.png)
 
-##  2 css选择器有哪些？优先级？哪些属性可以继承？
+##  ** 2 css选择器有哪些？优先级？哪些属性可以继承？
 
 [参考：](https://github.com/febobo/web-interview/issues/95)
 
@@ -86,17 +86,11 @@ IE盒模型
 
 更详细：选择器按优先级先后排列：!important>内联>id>class = 属性 = 伪类 >标签 = 伪元素 > 通配符 * 
 
-### 可继承
+### 可继承   
 
-每一个属性在定义中都给出了这个属性是否具有继承性，一个具有继承性的属性会在没有指定值的时候，会使用父元素的同属性的值
-来作为自己的值。
+ TODO--》
 
-一般具有继承性的属性有，字体相关的属性，font-size和font-weight等。文本相关的属性，color和text-align等。
-表格的一些布局属性、列表属性如list-style等。还有光标属性cursor、元素可见性visibility。不可继承的属性有： display、盒子模型、定位浮动、背景属性等
-
-当一个属性不是继承属性的时候，我们也可以通过将它的值设置为inherit来使它从父元素那获取同名的属性值来继承。
-
-## 3 [说说em/px/rem/vh/vw区别?](https://github.com/febobo/web-interview/issues/96) 
+## ** 3 [说说em/px/rem/vh/vw区别?](https://github.com/febobo/web-interview/issues/96) 
 
 + **px**：绝对单位，页面按精确像素展示
 + **em**：相对单位，基准点为父节点字体的大小，如果自身定义了`font-size`按自身来计算，整个页面内`1em`不是一个固定的值
@@ -173,7 +167,7 @@ PC端中，1个设备独立像素 = 1个设备像素 （在100%，未缩放的�
 
    特点：元素不可见，不占据页面空间，无法响应点击事件
 
-##  6 BFC 的概念, 哪些元素可以触发 BFC( 遇到高度坍塌和外边距折叠、外边距合并的情况怎么办)
+##  ** 6 BFC 的概念, 哪些元素可以触发 BFC( 遇到高度坍塌和外边距折叠、外边距合并的情况怎么办)
 
 > BFC 即 Block Formatting Context (块格式化上下文)， 是 Web 页面的可视化 CSS 渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。
 
@@ -211,7 +205,7 @@ PC端中，1个设备独立像素 = 1个设备像素 （在100%，未缩放的�
 - 多列容器（元素的 column-count 或 column-width 不为 auto，包括 - column-count 为 1）
 - column-span 为 all 的元素始终会创建一个新的 BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。
 
-## 7 [元素水平垂直居中的方法有哪些？如果元素不定宽高呢？](https://github.com/febobo/web-interview/issues/102) 
+##  ** 7 [元素水平垂直居中的方法有哪些？如果元素不定宽高呢？](https://github.com/febobo/web-interview/issues/102) 
 
 在开发中经常遇到这个问题，即让某个元素的内容在水平和垂直方向上都居中，内容不仅限于文字，可能是图片或其他元素
 
@@ -224,12 +218,11 @@ PC端中，1个设备独立像素 = 1个设备像素 （在100%，未缩放的�
 
 实现元素水平垂直居中的方式：
 
-- 利用定位+margin:auto
-- 利用定位+margin:负值
-- 利用定位+transform
-- table布局
-- flex布局
-- grid布局
+- 父元素position: relative子元素  position: absolute +  top、 left、right、bottom:0 +margin:auto
+- 父元素position: relative子元素  position: absolute+   top: 50%;left: 50%+transform：`translate(-50%, -50%);
+- table布局： 设置父元素为`display:table-cell`，子元素设置 `display: inline-block`。  vertical-align: middle; text-align: center;
+- flex布局：   display: flex;   justify-content: center;     align-items: center;
+- grid布局：  display: grid;   align-items:center;  justify-content: center;
 
 ### 利用定位+margin:auto
 
@@ -816,52 +809,24 @@ PC端中，1个设备独立像素 = 1个设备像素 （在100%，未缩放的�
 
 跟`flex`弹性布局一样的简单
 
-## 9 [说说flexbox（弹性盒布局模型）,以及适用场景？](https://github.com/febobo/web-interview/issues/104) 
+## ** 9 [说说flexbox（弹性盒布局模型）,以及适用场景？](https://github.com/febobo/web-interview/issues/104) 
 
 概念：Flexible Box，简称Flex，弹性布局，可以简便、完整、响应式地实现各种页面布局
 
-+ 采用Flex布局的元素，称为Flex Container，容器中存在两条轴，主轴和交叉轴，呈90度关系；
++ 弹性布局，display：flex
 
 + 所有子元素会自动成为Flex Item。
 
 Flex Container的属性有：
 
 + flex-direction，决定主轴的方向
-  + row（默认值）：主轴为水平方向，起点在左端
-  + row-reverse：主轴为水平方向，起点在右端
-  + column：主轴为垂直方向，起点在上沿。
-  + column-reverse：主轴为垂直方向，起点在下沿
 + flex-wrap，决定Flex item时候可以换行
-  + nowrap（默认值）：不换行
-  + wrap：换行，第一行在上方
-  + wrap-reverse：换行，第一行在下方
-+ flex-flow，前两个属性的简写形式
 + justify-content，定义了item在主轴上的对齐方式
-  + flex-start（默认值）：左对齐
-  + flex-end：右对齐
-  + center：居中
-  + space-between：两端对齐，项目之间的间隔都相等
-  + space-around：两个项目两侧间隔相等
 + align-items，定义了item在交叉轴上如何对齐
-  + flex-start：交叉轴的起点对齐
-  + flex-end：交叉轴的终点对齐
-  + center：交叉轴的中点对齐
-  + baseline: 项目的第一行文字的基线对齐
-  + stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度
-+ align-content，定义了多跟轴线的对齐方式，如果项目只有一根轴线，该属性不起作用
-  + flex-start：与交叉轴的起点对齐
-  + flex-end：与交叉轴的终点对齐
-  + center：与交叉轴的中点对齐
-  + space-between：与交叉轴两端对齐，轴线之间的间隔平均分布
-  + space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍
-  + stretch（默认值）：轴线占满整个交叉轴
-Flex Item的属性有：
++ align-content，定义了多根轴线的对齐方式，如果项目只有一根轴线，该属性不起作用
 
-+ order，定义了item的排列顺序，数字越小，排列越靠前
-+ flex-grow，定义了item相对于其他item的放大比例
-+ flex-shrink，定义了item相对于其他缩小比例
-+ flex-basis，指item的初始长度flex，是前三个属性的简写
-+ align-self：指定item的自身的对齐方式使用场景：方便实现元素水平垂直居中方便自适应布局，目前移动端、小程序开发基本都建议Flex布局
+  
+
 
 ## 10 [介绍一下grid网格布局](https://github.com/febobo/web-interview/issues/105) 
 
@@ -1000,13 +965,13 @@ Flex Item的属性有：
 </html>
 ```
 
-## 13 [怎么理解回流跟重绘？什么场景下会触发？](https://github.com/febobo/web-interview/issues/107) 
+## ** 13 [怎么理解回流跟重绘？什么场景下会触发？](https://github.com/febobo/web-interview/issues/107) 
 
 ### 回流
 
-浏览器计算页面布局的过程就叫做`回流`
+**浏览器计算页面布局的过程就叫做`回流`**
 
-只要页面有容器几何信息发生变更就会发生回流，也就是影响了它的排版，所以回流太常见了，有以下几种：
+只要页面有容器几何信息发生变更就会发生回流， 影响了它的排版， 有以下几种：
 
 1. 改变窗口的尺寸
 2. 改变元素的尺寸
@@ -1027,7 +992,7 @@ GPU将已经计算好几何信息的容器在屏幕上亮起来就是`重绘`
 4. 字体颜色
 5. 回流
 
-注意，既然发生了回流，就一定会带来重绘，重绘不一定带来回流
+ 回流 会带来重绘，重绘不一定带来回流
 
 ###  触发
 
@@ -1271,34 +1236,15 @@ GPU将已经计算好几何信息的容器在屏幕上亮起来就是`重绘`
 
 ## 15  [如果要做优化，CSS提高性能的方法有哪些？](https://github.com/febobo/web-interview/issues/114) 
 
-### 一、前言
-
-每一个网页都离不开`css`，但是很多人又认为，`css`主要是用来完成页面布局的，像一些细节或者优化，就不需要怎么考虑，实际上这种想法是不正确的
-
-作为页面渲染和内容展现的重要环节，`css`影响着用户对整个网站的第一体验
-
-因此，在整个产品研发过程中，`css`性能优化同样需要贯穿全程
-
 ### 二、实现方式
 
 实现方式有很多种，主要有如下：
 
-- 内联首屏关键CSS
 - 异步加载CSS
 - 资源压缩
 - 合理使用选择器
 - 减少使用昂贵的属性
 - 不要使用[@import](https://github.com/import)
-
-#### 内联首屏关键CSS
-
-在打开一个页面，页面首要内容出现在屏幕的时间影响着用户的体验，而通过内联`css`关键代码能够使浏览器在下载完`html`后就能立刻渲染
-
-而如果外部引用`css`代码，在解析`html`结构过程中遇到外部`css`文件，才会开始下载`css`代码，再渲染
-
-所以，`CSS`内联使用使渲染时间提前
-
-注意：但是较大的`css`代码并不合适内联（初始拥塞窗口、没有缓存），而其余代码则采取外部引用方式
 
 #### 异步加载CSS
 
@@ -1459,7 +1405,7 @@ css样式文件有两种引入方式，一种是`link`元素，另一种是`@imp
 
 
 
-## 18 [CSS如何画一个三角形？原理是什么？](https://github.com/febobo/web-interview/issues/117)
+## ** 18 [CSS如何画一个三角形？原理是什么？](https://github.com/febobo/web-interview/issues/117)
 
 
 
@@ -1479,7 +1425,7 @@ css样式文件有两种引入方式，一种是`link`元素，另一种是`@imp
 
 ![1711965272821](assets/1711965272821.png)
 
-## 19 [让Chrome支持小于12px 的文字方式有哪些？区别？](https://github.com/febobo/web-interview/issues/118) 
+## ** 19 [让Chrome支持小于12px 的文字方式有哪些？区别？](https://github.com/febobo/web-interview/issues/118) 
 
 Chrome 中文版浏览器会默认设定页面的最小字号是12px，英文版没有限制
 

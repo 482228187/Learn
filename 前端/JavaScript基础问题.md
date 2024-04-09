@@ -1,4 +1,4 @@
-# JavaScript 基础问题
+# **  JavaScript 基础问题
 
 * [`[Basic]` 类型判断]
 * [`[Basic]` 作用域]

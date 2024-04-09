@@ -10,7 +10,7 @@
 
 
 
-### component
+### **  component
 
 [博客](https://juejin.cn/post/7124501474175877150)
 
@@ -20,7 +20,7 @@
 
 
 
-### 插槽
+### **  插槽
 
 [博客](https://juejin.cn/post/7134733869076938765)
 
@@ -32,7 +32,7 @@
 
 
 
-###  Options API和Composition API
+###  **  Options API和Composition API
 
 [参考博客](https://juejin.cn/post/7325817302335471616) 、[参考博客](https://juejin.cn/post/7325495601269473289) 、[参考博客](https://juejin.cn/post/7227453567686033468)
 
@@ -54,7 +54,7 @@ Composition API 更好的代码组织，更好的逻辑服用；可维护性，�
 
 [参考来源：Vue3面试题汇总](https://juejin.cn/post/7139921537896808479)、[Vue3 setup + TypeScript 开发新范式](https://juejin.cn/post/7052531217333223437)
 
-### 项目的生命周期
+### **  项目的生命周期   
 
 [参考博客](https://juejin.cn/post/7323031996864413737)
 
@@ -119,7 +119,7 @@ onUnmounted(() => {console.log("销毁完成")}) //
 
 ![1710594644596](assets/1710594644596.png)
 
-### Vue3 新特性有哪些 
+### **  Vue3 新特性有哪些 
 
 #### 1、性能提升
 
@@ -158,7 +158,7 @@ onUnmounted(() => {console.log("销毁完成")}) //
 
  
 
-### vue3性能优化体现在哪几个方面
+### **  vue3性能优化体现在哪几个方面
 
 博客：从源[码设计看 Vue3 的性能提升](https://juejin.cn/post/7086084262423691294)：
 
@@ -205,7 +205,7 @@ Vue3中对`不参与更新`的元素，会做静态提升，`只会被创建一�
 
  
 
-### Vue3 里为什么要用 Proxy API 替代 defineProperty API ？
+###   Vue3 里为什么要用 Proxy API 替代 defineProperty API ？
 
 [可详细参考博客](https://juejin.cn/post/7201334455058923580)
 
@@ -226,7 +226,7 @@ Vue3中对`不参与更新`的元素，会做静态提升，`只会被创建一�
 
 
 
-### Vue3响应式原理 
+### **  Vue3响应式原理 
 
 [你一定看得懂的Vue3响应式实现原理](https://juejin.cn/post/7334623638115598347)
 
@@ -300,7 +300,7 @@ Vue3会将响应式对象转换为一个Proxy对象，并利用Proxy对象的get
 
 
 
-### vue3 组合式API生命周期钩子函数有变化吗 
+### **  vue3 组合式API生命周期钩子函数有变化吗 
 
 `setup` 是围绕 `beforeCreate` 和 `created` 生命周期钩子运行的，所以不需要显示的定义它们。其他的钩子都可以编写到 `setup` 内。
 
@@ -326,7 +326,7 @@ Vue3会将响应式对象转换为一个Proxy对象，并利用Proxy对象的get
 
 
 
-### watch 和 watchEffect 的区别？ 
+###  **  watch 和 watchEffect 的区别？ 
 
 `watch` 和 `watchEffect` 都是监听器，`watchEffect` 是一个副作用函数。它们之间的区别有：
 
@@ -392,13 +392,13 @@ watch(()=>person.job,(newValue, oldValue)=>{
 
 ------
 
-### v-if 和 v-for 的优先级哪个高 
+### **  v-if 和 v-for 的优先级哪个高 
 
 在 `vue2` 中 `v-for` 的优先级更高，但是在 `vue3` 中优先级改变了。`v-if` 的优先级更高。
 
  
 
-### script setup 是干啥的？ 
+### **  script setup 是干啥的？ 
 
 `scrtpt setup` 是 `vue3` 的语法糖，简化了`组合式 API` 的写法，并且运行性能更好。使用 `script setup` 语法糖的特点：
 
@@ -443,7 +443,7 @@ export default {
 
 
 
-### Vue2/Vue3组件通信方式？
+### ** Vue2/Vue3组件通信方式？
 
 - props 父组件调用子组件方法 
 - emit 子组件调用父组件方法 
@@ -726,7 +726,7 @@ Vue 3 中新增了`teleport`（瞬移）组件，可以将组件的 DOM 插到�
 
 [Vue3好玩的API-Teleport实现B站视频播放效果](https://www.bilibili.com/video/BV19u411v73D/)
 
-# vue2面试题
+# vue2面试题 12345789、10、12、13、15、18、20、21、24、25、27、28、32、33、34、35、36、37、38、39、41、42、43、46
 
 [参考博客](https://juejin.cn/post/7208005892313579576)、[参考博客](https://juejin.cn/post/7343484473184698405)、[参考博客](https://juejin.cn/post/7275943802934149160)
 
