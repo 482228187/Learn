@@ -835,7 +835,7 @@ MVVM是`Model-View-ViewModel`缩写，也就是把`MVC`中的`Controller`演变�
 >
 > （可以参阅前面第 4 题答案）
 
-6. ### `Object.defineProperty不能监听数组的变化`那么vue2是怎么实现数组响应式的呢?
+### `Object.defineProperty不能监听数组的变化`那么vue2是怎么实现数组响应式的呢?
 
 > [参考](https://blog.csdn.net/wanghaoyingand/article/details/136871692)答案：
 >
