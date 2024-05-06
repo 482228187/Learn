@@ -121,7 +121,7 @@ export default {
 .banner-menu {
     position: absolute;
     top: -358px;
-    left: 35px;
+    left: 0;
     width: 280px;
     z-index: 1;
     padding: 0 20px;
