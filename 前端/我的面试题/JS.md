@@ -169,8 +169,8 @@ promise通常用来解决回调地狱的问题，但也有几个**不可忽视�
 ## 11. 简述forEach()和map()循环的主要区别
 
 - 返回值：`forEach()` 没有返回值，而 `map()` 返回一个新数组。
-- 原数组：`forEach()` 会改变原数组，而 `map()` 不会改变原数组，而是返回一个新数组。
-- 使用场景：如果需要对数组进行操作并且不需要返回值，可以使用 `forEach()`；如果需要对数组进行操作并且需要返回一个新数组，可以使用 `map()`。
+- 原数组：`forEach()` 能改变原数组，而 `map()` 一般不能改变原数组，而是返回一个新数组。
+- 使用场景：如果需要对数组进行操作并且不需要返回值，可以使用 `forEach()`；如果需要对数组进行操作并且需要返回一个新数组，可以使用 `map()`。 
 
 ## 12.简述JSONP的工作原理（它为什么不是真的AJAX）
 
@@ -355,6 +355,78 @@ Js有两种变量，全局变量和局部变量，全局变量的内存是等页
 
 需要依赖数组元素上次结果，如累计可使用 `reduce、reduceRight`
 
+### 哪些不改变原数组
+
+```
+1.不会改变原来数组的有：
+concat()---连接两个或更多的数组，并返回结果。
+every()---检测数组元素的每个元素是否都符合条件。
+some()---检测数组元素中是否有元素符合指定条件。
+filter()---检测数组元素，并返回符合条件所有元素的数组。
+indexOf()---搜索数组中的元素，并返回它首次出现的位置。
+join()---把数组的所有元素放入一个字符串。
+toString()---把数组转换为字符串，并返回结果。
+lastIndexOf()---返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
+map()---通过指定函数处理数组的每个元素，并返回处理后的数组。
+slice()---选取数组的的一部分，并返回一个新数组。
+valueOf()---返回数组对象的原始值。
+find()---返回数组中符合测试函数条件的第一个元素
+reduce()---可以作为累加器
+
+2.会改变原来数组的有：
+pop()---删除数组的最后一个元素并返回删除的元素。
+push()---向数组的末尾添加一个或更多元素，并返回新的长度。
+shift()---删除并返回数组的第一个元素。
+unshift()---向数组的开头添加一个或更多元素，并返回新的长度。
+reverse()---反转数组的元素顺序。
+sort()---对数组的元素进行排序。
+splice()---用于插入、删除或替换数组的元素。
+
+```
+
+
+
+## 字符串的方法
+
+字符串长度 str.length;  
+
+字符串大小写转换，toUpperCase() 、toLowerCase() 
+
+字符串查找：
+
+- indexOf（）
+- lastIndexOf()
+- search()
+  - `search() 方法无法设置第二个开始位置参数。`
+  - `indexOf() 方法无法设置更强大的搜索值（正则表达式）`
+
+字符串截取方法
+
+- slice(*start*, *end*)
+- substring(*start*, *end*)
+- substr(*start*, *length*)
+  - `substring()` 类似于 `slice()`。`不同之处在于substring() 无法接受负的索引`
+  - `substr()` 类似于 `slice()`。`不同之处在于第二个参数规定被提取部分的长度`
+
+字符串替换
+
+- `replace()` 方法用另一个值替换在字符串中指定的值
+- `replace()` 方法不会改变调用它的字符串。它返回的是新字符串
+- `replace()` 默认只替换首个匹配
+
+字符串连接
+
+​	`concat()` 连接两个或多个字符串
+
+字符串删除两端的空白符 
+
+​	`trim()` 方法删除字符串两端的空白符 
+
+字符串提取字符
+
+- `charAt()` 方法返回字符串中指定下标（位置）的字符串：
+- `charCodeAt()` 方法返回字符串中指定索引的字符 unicode 编码：
+
 ## 20. [ES6  Map 与Set](https://juejin.cn/post/7330914575695937547)
 
 Set是一种集合数据结构，只能存储唯一的值，即不允许重复。 
@@ -526,3 +598,44 @@ window.onbeforeunload
 5、构造函数中的this 
 
 构造函数中的this 关键字指向当前创建的实例对象。 需要注意的是 `setTimeout` 中的回调仍然是一个普通函数，因此 `this` 默认指向 `window` 
+
+## 30 字符串的方法
+
+
+
+## 31 对象的方法
+
+https://juejin.cn/post/7129374520015585317
+
+![1714976330114](assets/1714976330114.png)
+
+## 请说一下AJAX中XMLHttpRequest有哪五大步骤
+
+**1.创建XMLhttpRequest对象**
+
+**2.使用open方法设置和服务器的交互信息**
+
+**3.如果默认是json格式,那就可以不设置requestHeader,默认的发送的是json格式数据**
+
+**4.发送请求**
+
+**5.如果请求完成，并响应完成，获取到响应数据**
+
+```
+ //1.创建XMLhttpRequest对象
+            var request=new XMLHttpRequest();
+            //2.使用open方法设置和服务器的交互信息
+            request.open('get','https://api.muxiaoguo.cn/api/lishijr');
+            //3.如果默认是json格式,那就可以不设置requestHeader,这是默认的发送json格式数据
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            //4.发送请求
+            request.send();
+            //5.如果请求完成，并响应完成，获取到响应数据
+            request.onreadystatechange=function (){
+                if(request.readyState===4&&request.status===200){
+                    console.log(JSON.parse(request.responseText));
+                }
+            }
+```
+
+[参考](https://blog.csdn.net/qq_51066068/article/details/124293153)

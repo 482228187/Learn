@@ -21,7 +21,7 @@ Vue2 的生命周期主要是：
 
 另外 `options API` 和 `composition API` 在生命周期上也有一些小的不同：
 
-> `composition API` 提供了 `setup` 函数作为入口函数，替换了 `beforeCreate` 和 `created` 这两个生命周期钩子。`composition API`中的钩子函数，通过在生命周期钩子前面加上 `on` 来访问组件的生命周期钩子。需要注册，并且只能在 `setup` 期间同步使用
+> `composition API` 提供了 `setup` 函数作为入口函数，替换了 `beforeCreate` 和 `created` 这两个生命周期钩子。**`composition API`中的钩子函数，通过在生命周期钩子前面加上 `on` 来访问组件的生命周期钩子**。需要注册，并且只能在 `setup` 期间同步使用
 
 ## 2，vue3新特性
 

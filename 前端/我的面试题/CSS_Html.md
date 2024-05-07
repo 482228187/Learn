@@ -36,9 +36,42 @@
 
 ### 继承
 
-可继承的属性：font-size, font-family, color
+可继承的属性：font-size, font-family, color，text-align ，line-height ，visibility 
 
-不可继承的样式：border, padding, margin, width, height
+**1.字体系列属性**
+
+- font-family：字体系列
+- font-weight：字体的粗细
+- font-size：字体的大小
+- font-style：字体的风格
+
+**2.文本系列属性**
+
+- text-indent：文本缩进
+- text-align：文本水平对齐
+- line-height：行高
+- word-spacing：单词之间的间距
+- letter-spacing：中文或者字母之间的间距
+- text-transform：控制文本大小写（就是uppercase、lowercase、capitalize这三个）
+- color：文本颜色
+
+**3.元素可见性**
+
+- visibility：控制元素显示隐藏
+
+**4.列表布局属性**
+
+- list-style：列表风格，包括list-style-type、list-style-image等
+
+**5.光标属性**
+
+- cursor：光标显示为何种形态
+
+ 
+
+不可继承的样式：display ，border, padding, margin, width, height
+
+
 
 ## 3. 说说em/px/rem/vh/vw区别?
 
@@ -62,7 +95,7 @@
 
 ​		     【4】overflow的值不为visible（默认值。内容不会被修剪，会呈现在元素框之外）
 
-​		     【5】display的值为inline-block、table-cell、table-caption
+​		     【5】display的值为flex、grid、inline-block、table-cell、table-caption
 
 ### BFC布局规则：
 
@@ -158,7 +191,7 @@ GPU将已经计算好几何信息的容器在屏幕上亮起来就是`重绘`
 
 ## 7. 画三角形
 
-首先，需要把元素的宽度、高度设为0。然后设置边框样式，如设置四个边框大小为40px solid 将三个边框颜色设置为透明，剩下那个设置为红色。
+首先，**需要把元素的宽度、高度设为0**。然后设置边框样式，如设置四个边框大小为40px solid 将三个边框颜色设置为透明，剩下那个设置为红色。
 
 ```
 width: 0;
@@ -242,7 +275,41 @@ inherit 规定应该从父元素继承 display 属性的值
 </div>
 ```
 
+## 13, display:none visibility:hidden opacity:0 的异同
 
+共同点
+
+> 都是隐藏
+
+不同点：
+
+1. 是否占据空间
+   display: none 隐藏后，不占位置
+
+   visibility: hidden: 隐藏后，仍然占据位置
+
+   opacity: 0: 隐藏后，仍然占据位置
+
+2. 子元素是否继承
+   display: none: 不会被子元素继承，父元素都不存在了，子元素也不会显示出来
+
+   visibility: hidden: 会被子元素继承，通过设置子元素visibility: visible来显示子元素
+
+   opacity: 0: 会被子元素继承，但不能设置子元素的opacity来显示子元素
+
+3. 事件绑定
+   display: none: 隐藏后，DOM元素都不存在了，所以无法触发绑定事件
+
+   visibility: hidden: 虽然元素仍然占据位置，但是无法触发绑定事件
+
+   opacity: 0: 可以触发绑定事件
+
+4. 过渡动画 transition
+   display: none: 无效
+
+   visibility: hidden: 无效
+
+   opacity: 0: 有效 
 
 ## 二、HTML
 
@@ -299,3 +366,13 @@ iframe 元素会创建包含另外一个文档的内联框架（即行内框架�
 - svg 绘制出来的每⼀个图形的元素都是独立的 DOM 节点， 能够方便的绑定事件或，也可以通过脚本和CSS进行修改 。 canvas 输出的是⼀整幅画布，不支持事件处理器，只能通过脚本修改
 - svg 输出的图形是矢量图形，放大缩⼩不会失真和锯齿 。而 canvas 输出标量画布，就像⼀张图片⼀样，放大会失真或者锯齿
 
+## flex为1
+
+ flex是弹性布局里面的3个项目属性的缩写:flex:1等价于flex-grow:1;flex-shrink:1;flex-basis:auto
+
+flex-grow:默认为0，意思是当有剩余空间时，该flex元素也不扩大
+
+flex-shrink: 默认为1，意思是当内存空间不够时，该flex元素将缩小
+
+flex-basis:默认为auto,意思是在分配多余的内存空间时，该flex项目的大小，默认是该项目原本体积大小
+ 
