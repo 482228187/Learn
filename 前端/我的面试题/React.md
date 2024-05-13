@@ -397,9 +397,47 @@ onClick = () => {
 
 ## 15.React有哪几种方式改变state
 
+**setState方法：** 这是React中最常用的方式。使用setState方法可以更新组件的状态。setState接受一个新的状态对象或者一个返回新状态对象的函数作为参数。当状态更新时，React会重新渲染组件。例如： 
+
+```
+this.setState({ count: this.state.count + 1 });
+// 或者
+this.setState(prevState => ({ count: prevState.count + 1 }));
+
+```
+
+**useState Hook：** 在函数式组件中，可以使用useState Hook来声明和更新状态。useState返回一个状态值和一个更新状态的函数。例如： 
+
+```
+const [count, setCount] = useState(0);
+// 更新状态
+setCount(count + 1);
+
+```
+
+useReducer Hook： 当状态逻辑变得复杂时，可以使用useReducer Hook来管理状态。它类似于Redux中的reducer，接受一个状态和一个处理状态的函数，并返回新的状态。例如：
+
+```
+const initialState = { count: 0 };
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+const [state, dispatch] = useReducer(reducer, initialState);
+// 更新状态
+dispatch({ type: 'increment' });
+
+```
 
 
-## 16react render原理，在什么时候触发
+
+## 16,react render原理，在什么时候触发
 
 render存在两种形式：
 

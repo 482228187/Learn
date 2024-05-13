@@ -1,6 +1,6 @@
 # 五、TS面试题
 
-[参考来源](https://juejin.cn/post/7160962909332307981)
+[参考来源](https://juejin.cn/post/7160962909332307981)、[学习专栏](https://blog.csdn.net/dxt19980308/category_12005255.html)
 
 ## 1. TypeScript 是什么
 
@@ -12,6 +12,13 @@ TypeScript，简称 ts，是微软开发的一种静态的编程语言，它是 
 ## 2. TypeScript 与 JavaScript 的区别
 
 ![Snipaste_2022-08-18_20-16-41.jpg](../../../../../%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A0%94%E4%BA%8C%E4%B8%8B/%E6%89%BE%E5%B7%A5%E4%BD%9C/%E5%89%8D%E7%AB%AF/assets/70e7d666a20b42939d300e8cd1a2ef71-tplv-k3u1fbpfcp-zoom-in-crop-mark-1512-0-0-0.webp)
+
+动态类型是指在运行时才会进行类型检查，这种语言的类型错误往往会导致运行时错误。JavaScript 是一门解释型语言，没有编译阶段，所以它是动态类型
+静态类型是指编译阶段就能确定每个变量的类型，这种语言的类型错误往往会导致语法错误。TypeScript 在运行前需要先编译为 JavaScript，而在编译阶段就会进行类型检查，所以 TypeScript 是静态类型
+
+TypeScript 是完全兼容 JavaScript 的，它不会修改 JavaScript 运行时的特性 ， python是强类型，在处理以下代码时需要强制转换类型后才不会报错 
+
+[参考](https://blog.csdn.net/weixin_36038649/article/details/123864631)
 
 ## 3. TypeScript的类型
 
@@ -469,6 +476,8 @@ declare 关键字:用于类型声明，为其他地方(比如，.js 文件)已�
 
 **命名空间**
 
+在TypeScript中，命名空间（namespace）是一种将代码分组的方式，可以用来组织大型的项目或者复杂的代码结构。命名空间可以包含类型、接口、变量、函数等。 
+
 命名空间一个最明确的目的就是解决重名问题
 
  命名空间也是用来解决重名问题。
@@ -497,13 +506,17 @@ SomeNameSpace1.say
 
 ## 10. 说说你对 TypeScript 装饰器的理解？
 
-装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上
+装饰器是一种特殊类型的声明，它能够被附加到类声明，方法， 访问符，属性或参数上，是一种在不改变原类和使用继承的情况下，动态地扩展对象功能
 
-是一种在不改变原类和使用继承的情况下，动态地扩展对象功能
+目前装饰器本质上是一个函数，`@expression` 的形式其实是一个语法糖, expression 求值后必须也是一个函数，它会在运行时被调用，被装饰的声明信息做为参数传入
 
 ### 装饰器类型
 
 在 `TypeScript` 里，主要有类装饰器、方法装饰器、属性装饰器、参数装饰器。
+
+ 
+
+[参考文章](https://blog.csdn.net/qq_42033567/article/details/111931519)
 
 ## 11. Vue3中父子传值 , 用TS怎么写，怎么设置默认值
 
@@ -534,4 +547,3 @@ const props = withDefaults(defineProps<Props>(), {
 })
 ```
 
-# 
