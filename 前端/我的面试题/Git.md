@@ -82,7 +82,7 @@ $ git reset --hard commit_id 进入指定commit的
 
 
 
- `git revert`与`git revert`的区别
+ `git revert`与`git reset`的区别
 
 - `git revert`、`git reset`都能完成Git 记录回退代码的目的
 - `git revert`相当于新增一条Git记录，不会消除已存在的记录
@@ -91,5 +91,5 @@ $ git reset --hard commit_id 进入指定commit的
  
 
 
- 
+
 [参考链接：](https://juejin.cn/post/7317489683038388274 )、[参考链接](https://juejin.cn/post/7164358648343298084)、[参考链接](https://juejin.cn/post/7355692365330792488)
