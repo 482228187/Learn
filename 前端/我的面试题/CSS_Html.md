@@ -11,6 +11,8 @@
 
 `box-sizing: content-box;` 代表的是标准盒模型，`box-sizing: border-box;` 代表的是IE盒模型。
 
+大多数浏览器默认采用标准盒模型，但您可以通过CSS的`box-sizing`属性来指定使用怪异盒模型。 
+
 ## 2.选择器
 
 1. id选择器（#box） 
@@ -281,6 +283,18 @@ inherit 规定应该从父元素继承 display 属性的值
 </div>
 ```
 
+**理解flex: 1的作用**
+当我们将一个项目的flex属性设置为1时，相当于将其分配了一个相对于其他项目相同的可伸缩空间。换句话说，**flex: 1会使得该项目尽可能地占据父容器中的剩余空间，但不会影响到其他项目。**
+
+ ```
+flex: 1; /* 等同于 flex: 1 1 0%; */
+ ```
+
+flex-grow 设置为 1，表示该项可以在父容器内扩展，占据所有可用的额外空间。
+flex-shrink 设置为 1，表示该项可以在空间不足时收缩，以避免溢出。
+flex-basis 设置为 0%，表示项目在分配额外空间之前不占用空间，会自动填充所有可用空间。
+
+
 ## 13, display:none visibility:hidden opacity:0 的异同
 
 共同点
@@ -423,9 +437,11 @@ iframe 元素会创建包含另外一个文档的内联框架（即行内框架�
 
 ## 4.行内元素、空元素、块级元素
 
-⾏内元素有： a b span img input select strong 
+⾏内元素有： a b span    strong  em
 
 块级元素有： div p  ul ol li dl dt dd h1 h2 h3 h4… 
+
+行内块级元素：`<img>`、`<button>` 、`input`、`select`、`textarea`、`button` 
 
 空元素：`<br>` `<hr>` `<img>`  `<input>` ` <link>`  `<meta> `
 
